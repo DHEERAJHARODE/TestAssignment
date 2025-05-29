@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <title>किरायेदारी अनुबंध</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Hind', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background-color: white;
+    padding: 2px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-container {
+    width: 100%;
+    margin-bottom: 0;
+    text-align: left;
+    padding: 0;
+  }
+
+  .logo-container img {
+    width: 100%;
+    display: block;
+    margin: 0;
+  }
+
+  .content {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    color: #333;
+    font-size: 17px;
+    line-height: 1.3;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 32px;
+    margin: 0 0 10px 0;
+  }
+
+  p, li {
+    margin: 6px 0;
+  }
+
+  ul {
+    margin: 10px 0 20px 20px;
+    padding-left: 0;
+  }
+
+  ul li {
+    margin-bottom: 6px;
+  }
+
+  .signature {
+    margin-top: 25px;
+    text-align: right;
+  }
+
+  .signature img {
+    width: 130px;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 5px;
+    background: #fff;
+  }
+
+  .print-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  @media print {
+    body {
+      background: none !important;
+      padding: 0;
+      display: block;
+    }
+
+    .print-btn {
+      display: none;
+    }
+
+    .page {
+      box-shadow: none;
+      margin: 0;
+      border-radius: 0;
+      padding: 4mm;
+      width: 210mm;
+      min-height: 297mm;
+    }
+
+    .content {
+      box-shadow: none;
+      background-color: transparent !important;
+      font-size: 17px !important;
+      line-height: 1.25 !important;
+    }
+
+    .page,
+    .logo-container,
+    .content,
+    .signature,
+    .print-btn,
+    body {
+      border: none !important;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .page {
+      width: 100%;
+      min-height: auto;
+      box-shadow: none;
+    }
+
+    .content {
+      max-width: 100%;
+      padding: 15px;
+      font-size: 17px;
+    }
+
+    .logo-container {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .signature img {
+      width: 110px;
+    }
+  }
+
+  @page {
+    margin: 0;
+    size: A4;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="logo-container">
+      <img src="/static/signature/logo.jpg" alt="Company Logo" />
+    </div>
+
+    <div class="content">
+      <h1>Agreement</h1>
+      <p><strong>नाम:</strong> {{ name }}</p>
+      <p><strong>पिता/पति का नाम:</strong> {{ father_name }}</p>
+      <p><strong>पता:</strong> {{ address }}</p>
+      <p><strong>आधार नंबर:</strong> {{ aadhaar }}</p>
+      <p><strong>पैन नंबर:</strong> {{ pan }}</p>
+      <p><strong>मोबाइल नंबर:</strong> {{ mobile }}</p>
+
+      <ul>
+        <li>मैं हर महीने का किराया निर्धारित तिथि (प्रत्येक माह की 5 तारीख) तक मकान मालिक को समय पर जमा करूंगा।</li>
+        <li>मैं कमरा खाली करने की स्थिति में कम से कम एक (1) माह पूर्व लिखित सूचना मकान मालिक को दूंगा। यदि मैं ऐसा नहीं करता, तो मैं अगले महीने का पूरा किराया जमा करूंगा।</li>
+        <li>मैं अपने किराए के कमरे में किसी भी बाहरी व्यक्ति को बिना मकान मालिक की पूर्व अनुमति के नहीं ठहराऊंगा। यदि मैं ऐसा करता हूं, तो एक व्यक्ति के लिए प्रति रात ₹200/- के हिसाब से अतिरिक्त शुल्क जमा करूंगा।</li>
+        <li>मैं कमरे में वॉटर हीटर, इंडक्शन या किसी अन्य भारी विद्युत उपकरण का उपयोग नहीं करूंगा। यदि मैं ऐसा करता हुआ पाया जाता हूँ, तो मकान मालिक मुझे किसी भी समय कमरा खाली करने के लिए बाध्य कर सकते हैं।</li>
+        <li>मेरे द्वारा किराए के कमरे या उसमें उपलब्ध किसी भी वस्तु की कोई भी तोड़-फोड़ या क्षति होती है, तो उससे संबंधित संपूर्ण मरम्मत/बदलाव का खर्च मैं स्वयं वहन करूंगा और मकान मालिक को उसकी भरपाई करूंगा।</li>
+        <li>मैं दीवारों पर कील ठोकने, पेंट/प्लास्टर को नुकसान पहुंचाने या कोई स्थायी परिवर्तन करने का कार्य नहीं करूंगा। यदि ऐसा करता हूँ तो उसका खर्च मेरी जमा राशि से काटा जाएगा या मुझे अलग से भुगतान करना होगा।</li>
+        <li>मैं कमरे में साफ-सफाई बनाए रखूंगा और कोई अवैध कार्य नहीं करूंगा।</li>
+        <li>उल्लंघन पर मकान मालिक बिना सूचना के कमरा खाली करवा सकते हैं और जमा राशि समायोजित कर सकते हैं।</li>
+      </ul>
+
+      <div class="signature">
+        <p><strong>मैं उपरोक्त सभी शर्तों से पूर्णतः सहमत हूँ।</strong></p>
+        <p>हस्ताक्षर:</p>
+        <img src="{{ signature_url }}" alt="Signature" />
+      </div>
+    </div>
+  </div>
+
+  <div class="print-btn">
+    <button onclick="window.print()">प्रिंट करें</button>
+  </div>
+</body>
+</html>
